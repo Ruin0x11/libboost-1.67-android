@@ -19,3 +19,21 @@ __boost_libstdcxx_subdir := $(strip \
         $(if $(filter clang%,$(NDK_TOOLCHAIN_VERSION)),4.9,$(NDK_TOOLCHAIN_VERSION))\
     ))\
 )
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := boost_filesystem
+LOCAL_SRC_FILES := libs/llvm/${TARGET_ARCH_ABI}/libboost_filesystem.so
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include/boost/filesystem
+include $(PREBUILT_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := boost_system
+LOCAL_SRC_FILES := libs/llvm/${TARGET_ARCH_ABI}/libboost_system.so
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include/boost/system
+include $(PREBUILT_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := boost_iostreams
+LOCAL_SRC_FILES := libs/llvm/${TARGET_ARCH_ABI}/libboost_iostreams.so
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include/boost/iostreams
+include $(PREBUILT_SHARED_LIBRARY)
